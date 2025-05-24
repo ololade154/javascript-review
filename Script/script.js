@@ -136,3 +136,18 @@ courseDelete;
 //
 const courseUpdated = courseDelete.map((course) => course);
 courseUpdated;
+//Asynchronous
+//fetch API is used to fetch data from an API
+//fetching data from an API using Promise method
+// fetch('https://jsonplaceholder.typicode.com/todos')
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
+// console.log('ololade');
+
+//fetching data from an API using async function (await)
+async function getTodo() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/todos');
+  const data = await res.json();
+  console.log(data);
+}
+getTodo();
