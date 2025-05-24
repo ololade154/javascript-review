@@ -78,15 +78,61 @@ console.log(myCourses);
 // const courses = getCourse(1);
 // const { courseCode, courseTitle, unit, courseStatus } = courses;
 // courses;
+const courses = getCourse(1);
+const { id, courseCode, courseTitle, unit, courseStatus } = courses;
+courses;
+const summaryUpdate = `hello ${courseTitle.split('-')[0]}${
+  courseCode.split('-')[0]
+} `;
+summaryUpdate;
 // // const [newcourseStatus] = courseStatus;
 // const statusUpdate = [...courseStatus, 'required'];
 // statusUpdate;
 // trying for each
-const allCourses = getCourses();
-const { courseCode, courseTitle, unit, courseStatus } = allCourses;
-allCourses;
+// const allCourses = getCourses();
+// const { courseCode, courseTitle, unit, courseStatus } = allCourses;
+// allCourses;
+//
+// allCourses.forEach(function (course) {
+//   course.courseStatus.push('required');
+// });
+// console.log(allCourses);
+//ternaries operator is used when you are unable to use if else statement inside a template string
+const idRange = id > 100 ? 'hello' : ' lade';
 
-allCourses.forEach(function (course) {
-  course.courseStatus.push('required');
-});
-console.log(allCourses);
+idRange;
+//arrow functions and map
+const myArray = [1, 2, 3, 4];
+const newArray = myArray.map((num) => num * 2);
+console.log(newArray);
+
+const newCourses = getCourses();
+const courseTitles = newCourses.map((title) => title.courseTitle);
+console.log(courseTitles);
+const essentialDates = newCourses.map((title) => ({
+  courseTitle: title.courseTitle,
+  courseCode: title.courseCode,
+}));
+console.log(essentialDates);
+const filterCourse = newCourses.filter((title) => title.id > 1);
+console.log(filterCourse);
+const sortArray = [3, 4, 5, 2, 7, 8, 1, 9];
+const sortedArray = sortArray.slice().sort((a, b) => a - b);
+sortedArray;
+sortArray;
+// to add an object to an existing array
+const courseUpdate = {
+  id: 4,
+  courseCode: 'CSC426',
+  courseTitle: 'parallel computing',
+  unit: '2 unit',
+  courseStatus: ['core'],
+};
+const courseAdd = [...myCourses, courseUpdate];
+courseAdd;
+//To delete an object from an array
+const courseDelete = courseAdd.filter((course) => course.id !== 3);
+courseDelete;
+//
+const courseUpdated = courseDelete.map((course) => course);
+courseUpdated;
